@@ -25,12 +25,12 @@ def scan_dir(url, timeout, q):
     try:
         response = requests.get(url, timeout=timeout)
         if response.status_code == 200:
-            print(colored(f"[+] {url} is a valid directory. Status code: {response.status_code}. Length: {len(response.text)}", 'green'))
+            print(colored(f"[+] {url} Check this out, it might be senstive. Status code: {response.status_code}. Length: {len(response.text)}", 'green'))
             q.put(url)
       #  else:
        #     print(colored(f"[-] {url} is not a valid directory. Status code: {response.status_code}. Length: {len(response.text)}", 'red'))
     except requests.exceptions.RequestException as e:
-        print(colored(f"[-] {url} is not a valid directory. Error: {e}", 'red'))
+        print(colored(f"[-] {url} No File Found. Error: {e}", 'red'))
 
 # Define command line arguments
 parser = argparse.ArgumentParser()
